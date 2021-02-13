@@ -35,6 +35,11 @@ class WikiWordCount:
         self.count_text.grid(row=3, column=1)
 
     def validate(self, new_query):
+        """
+        Validate entry widget contents
+        :param new_query:
+        :return:
+        """
         if not new_query:
             self.query = ""
             return True
@@ -45,6 +50,11 @@ class WikiWordCount:
             return False
 
     def get_count(self):
+        """
+        Set url string and parse html text
+        Split for each " " then count length
+        :return:
+        """
         term = self.query_entry.get()
         main_url = URL + term
         url_request = requests.get(main_url)
